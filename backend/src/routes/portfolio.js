@@ -1,5 +1,13 @@
 import express from 'express';
 import fs from 'fs/promises';
+<<<<<<< HEAD
+=======
+import mongoose from 'mongoose';
+import portfolioCMSRoutes from './portfolioCMS.js';
+import { validateToken as validateCloudflareToken } from '../services/deploy/cloudflareDeployer.js';
+import { validateToken as validateGithubToken } from '../services/deploy/githubPagesDeployer.js';
+import { validateToken as validateNetlifyToken } from '../services/deploy/netlifyDeployer.js';
+>>>>>>> 325c73f (Add secure CMS API key management and authentication)
 import { verifyToken } from '../middleware/auth.js';
 import { asyncHandler, ApiError } from '../middleware/errorHandler.js';
 import cacheHeaders from '../middleware/cacheHeaders.js';
@@ -370,6 +378,7 @@ export default router;
     },
   });
 }));
+router.use('/cms', portfolioCMSRoutes);
 
 export default router;
 export default router;
